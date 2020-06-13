@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+    <h1> This is our vending machine</h1>
+    <form>
+        <input type=“button” value =“Snicker” onclick=“makeSelection(‘Snickers’)“/>
+        <input type=“button” value =“Gusher” onclick=“makeSelection(‘Gusher’)“/>
+        <input type=“button” value =“Gum” onclick=“makeSelection(‘Gum’)“/>
+        <input type=“button” value =“Soda” onclick=“makeSelection(‘Soda’)“/>
+        <input type=“button” value =“Chips” onclick=“makeSelection(‘Chips’)“/>
+        <input type=“button” value =“Water” onclick=“makeSelection(‘Water’)“/>
+        <input id=“money” type=“number” value=“”/>
+        <input type=“button” value =“Submit” onclick=“enterMoney()“/>
+    </form>
+    <div>
+        <h4>Amount Entered </h4>
+        <p id=“amountEntered”></p>
+        <h4>Items bought</h4>
+        <p id=“itemsBought”></p>
+        <h4>Change</h4>
+        <p id=“Change”></p>
+    </div>
+    <script>
+    var money = document.getElementById(“money”).value;
+        var totalTendered = 0;
+        var items = {
+            Snickers: 1.00,
+            Gusher: 1.50,
+            Gum: 0.25,
+            Soda: 1.00,
+            Chips: 1.50,
+            Water: 1.00
+        };
+        //Bag of items
+        var bag = [];
+        var getItems = function () {
+            return items;
+        }
+        function enterMoney(amount) {
+            if (isNaN(amount) == false) {
+                totalTendered += amount;
+                document.getElementById(“amountEntered”).innerHTML = totalTendered;
+            } else {
+                console.log(“You entered the wrong amount”);
+            }
+        }
+        function makeSelection(selection) {
+            if (!items[selection]) {
+                console.log(“No Item Exist”);
+            } else {
+                var item_price = items[selection];
+                if (item_price <= totalTendered) {
+                    totalTendered = totalTendered - item_price;
+                    return selection;
+                } else {
+                    console.log(“Not enough money to buy ” + selection);
+                }
+            }
+        }
+        function getChange() {
+            if (!totalTendered) {
+                console.log(“There is no money to return”);
+            }
+            var amountToReturn = totalTendered;
+            //remove all the money
+            totalTendered = 0;
+            return amountToReturn;
+        }
+    </script>
+</body>
+</html>
