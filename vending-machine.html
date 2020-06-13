@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Vending Machines</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 25px;
+            border: 4px dotted lightgreen;
+        }
+        form{
+        background-color:lavenderblush ;
+        }
+        #vendingImg{
+            display:block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 40%
+        }
+        body{
+            background-color: rgb(132, 181, 230);
+            border-style:solid;
+            border-width: 10px;
+        }
+        input{
+            width: 50%;
+            box-sizing: border-box;
+            background-color:lightyellow
+        }
+    </style>
+    </head>
+    <body>
+         <p>
+            This is a vending machine. NO PRETZELS. Lots of gummies.
+        </p>
+        <div id='vendingImg'>
+        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS96eCEA3PlDPOIUnd7mZImpVhMSeNGA_ASvToONuRC-JdbO1nV&usqp=CAU'>
+        </div>
+    </body>
+    <form>
+        <div>
+            <label>Money</label>
+            <input type='number'/>
+        </div>
+        <br>
+        <div>
+            <label>Snack Options</label>
+            <select>
+                <option>Sour worms</option>
+                <option>Gushers</option>
+                <option>Hot cheetos</option>
+                <option>Takis</option>
+                <option>Sour brite crawlers</option>
+                <option>Butterfingers</option>
+                <option>Tape</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type='button' value='get your snack'>
+        </div>
+        <br>
+        <div>
+            <input type='button' value='get change'>
+        </div>
+    </form>
+</html>
